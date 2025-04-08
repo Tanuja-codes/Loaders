@@ -1,0 +1,423 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html,
+body,
+.main-cont {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.main-cont {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    width: 100%;
+    background-color: bisque;
+    justify-items: center;
+}
+
+.div-cont {
+    margin: 30px;
+    height: 230px;
+    width: 200px;
+    border-radius: 18%/20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 3px solid lightslategray;
+    position: relative;
+    background-color: aliceblue;
+}
+
+.circle {
+    border-radius: 50%;
+    /* border: 7px solid white; */
+    padding: 7px;
+    background-color: transparent;
+
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.circle1 {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background-image: conic-gradient(from var(--angle), transparent 30%, mediumvioletred);
+    animation: clock 2s 0.5s ease-in-out backwards infinite;
+}
+
+.circlecover {
+    position: absolute;
+    height: 135px;
+    width: 135px;
+    background-color: aliceblue;
+}
+
+.circle2 {
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    rotate: 145deg;
+    background-image: conic-gradient(from var(--angle), transparent 30%, rgb(231, 46, 46));
+    animation: anti 2s 0.5s ease-in-out forwards infinite;
+}
+
+.circle3 {
+    position: absolute;
+    height: 105px;
+    width: 105px;
+    background-color: aliceblue;
+}
+
+@keyframes clock {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
+
+@keyframes anti {
+    from {
+        --angle: 0deg;
+    }
+
+    to {
+        --angle: 360deg;
+    }
+}
+
+/* 2nd animation */
+
+.div2 .dot {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    /* border: 1px solid black; */
+    margin: 4px;
+    animation: move 2s 1s ease infinite, colors 4s infinite;
+}
+
+.dot:nth-child(1) {
+    animation: bounce 2s 1s linear forwards infinite,
+        colors 4s infinite;
+}
+
+@keyframes bounce {
+    0% {
+        transform: translate(0px, 0);
+    }
+
+    10% {
+        transform: translate(-20px, 0);
+    }
+
+    25% {
+        transform: translate(30px, -30px);
+    }
+
+    40% {
+        transform: translate(70px, -49px);
+    }
+
+    50% {
+        transform: translate(75px, -50px);
+    }
+
+    60% {
+        transform: translate(80px, -49px);
+    }
+
+    75% {
+        transform: translate(100px, -30px);
+    }
+
+    90% {
+        transform: translate(138px, 0px);
+    }
+
+    100% {
+        transform: translate(130px, 0px);
+    }
+}
+
+@keyframes move {
+    0% {
+        transform: translate(0px, 0);
+    }
+
+    100% {
+        transform: translate(-25px, 0px);
+    }
+}
+
+@keyframes colors {
+    0% {
+        background-color: rgb(98, 228, 228);
+    }
+
+    25% {
+        background-color: blue;
+    }
+
+    50% {
+        background-color: rgb(226, 236, 86);
+    }
+
+    75% {
+        background-color: rgb(158, 71, 158);
+    }
+
+    100% {
+        background-color: rgb(96, 177, 29);
+    }
+}
+
+/* animation3 */
+.square1 {
+    height: 150px;
+    width: 100px;
+    border: 3px solid black;
+    border-radius: 10%;
+    position: relative;
+    /* z-index: 10; */
+    animation: comp1 4s ease infinite, tab1 2s ease infinite;
+}
+
+.square2 {
+    position: absolute;
+    height: 5px;
+    width: 30px;
+    border: 3px solid black;
+    border-radius: 30%;
+    bottom: 25%;
+    /* z-index: 2; */
+    animation: comp2 4s ease-out infinite, tab2 4s ease infinite;
+}
+
+.square3 {
+    position: absolute;
+    height: 22px;
+    width: 5px;
+    border: 3px solid black;
+    border-radius: 30%;
+    top: 48%;
+    right: 40px;
+    /* z-index: 1; */
+    animation: comp3 4s ease-out infinite, tab3 4s ease infinite;
+}
+
+@keyframes comp1 {
+    50% {
+        height: 82px;
+    }
+
+    80% {}
+}
+
+@keyframes comp2 {
+    50% {
+        width: 50px;
+        bottom: 20%;
+    }
+}
+
+@keyframes comp3 {
+    50% {
+        left: 48%;
+        top: 68%;
+    }
+}
+
+/* animation 4 */
+
+.div4 {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.rect {
+    position: relative;
+    height: 110px;
+    width: 10px;
+    background-color: black;
+    animation: updown 1s linear infinite alternate;
+}
+
+.rect-bar1 {
+    margin-right: 80px;
+    animation-direction: alternate-reverse;
+}
+
+.ball {
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: black;
+    animation: ballmove 1s linear infinite alternate;
+}
+
+@keyframes updown {
+
+    0% {
+        top: -20%;
+    }
+
+    100% {
+        top: 20%;
+    }
+}
+
+@keyframes ballmove {
+
+    0% {
+        left: 30%;
+    }
+
+    100% {
+        left: 60%;
+    }
+}
+
+/* animation 5 */
+
+.div5 .oval {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin: 4px;
+    background-color: black;
+}
+
+.oval:nth-child(1) {
+    height: 140px;
+    width: 140px;
+    position: relative;
+    background-color: yellow;
+}
+
+.oval:nth-child(2) {
+    position: absolute;
+    top: 40%;
+    left: 30%;
+}
+
+.oval:nth-child(3) {
+    position: absolute;
+    top: 40%;
+    right: 30%;
+}
+
+.oval:nth-child(4) {
+    height: 20px;
+    width: 30px;
+    position: absolute;
+    top: 60%;
+    left: 42%;
+    border-radius: 50%;
+    background-color: red;
+}
+
+.oval:nth-child(5) {
+    position: absolute;
+    height: 20px;
+    width: 30px;
+    top: 57%;
+    left: 42%;
+    border: none;
+    border-bottom: 1px solid black;
+    border-radius: 50%;
+    background-color: yellow;
+    animation: smile 4s ease-in infinite;
+}
+
+@keyframes smile {
+    0% {
+        border-bottom: none;
+        background-color: transparent;
+    }
+
+    30%,
+    100% {
+        background-color: yellow;
+    }
+}
+
+/* animation 5 */
+.small-cont {
+    height: 100px;
+    width: 90%;
+    border-radius: 50%;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    border: 1px solid brown;
+}
+
+.div6 .flower {
+    text-align: center;
+    height: 60px;
+    width: 30px;
+    z-index: 999;
+    border-radius: 50% 50% 50% 50%/50% 50% 50% 50%;
+    border: 1px solid brown;
+    background-color: red;
+}
+
+.petal {
+    text-align: center;
+    /* position: absolute; */
+    height: 60px;
+    width: 30px;
+    border-radius: 50% 50% 50% 50%/50% 50% 50% 50%;
+    border: 1px solid black;
+    background-color: pink;
+
+}
+
+.petal:nth-child(1) {
+    rotate: 340deg;
+    left: 29%;
+}
+
+.petal:nth-child(2) {
+    rotate: 350deg;
+    left: 29%;
+}
+
+/* .petal:nth-child(3) {
+    rotate: 350deg;
+    left: 31%;
+} */
+
+.petal:nth-child(4) {
+    rotate: 10deg;
+    right: 31%;
+}
+
+.petal:nth-child(5) {
+    rotate: 20deg;
+    right: 29%;
+}
+
+.petal:last-child {
+    bottom: 0%;
+    rotate: 270deg;
+    background-color: green;
+    margin: auto;
+    margin-bottom: 50%;
+}
